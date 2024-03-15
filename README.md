@@ -51,7 +51,7 @@ In this project, we employed a variety of feature engineering techniques to tran
 
 - The third approach was using Bag of Words (BoW). This is a representation of text that describes the occurrence of words within a document. We used the CountVectorizer from the sklearn library to convert our text data into a matrix of token counts.
 
-The final approach was using a transformer model for feature extraction. We used the DistilBERT model. We tokenized the text data, added special tokens, padded or truncated the sequences to a specified maximum length, and created attention masks. For inference, we followed the same steps but without the labels.
+- The final approach was using a transformer model for feature extraction. We tokenized the text data, added special tokens, padded or truncated the sequences to a specified maximum length, and created attention masks. For inference, we followed the same steps but without the labels.
 
 #### Models archeture 
 
@@ -63,5 +63,11 @@ In this project, we utilized a variety of machine learning models to classify ne
 
 **Tranformer**. The final model we used was the DistilBERT model from the transformers library. DistilBERT is a lighter version of BERT. We fine-tuned this model on our task, using a learning rate of 2e-5 and a batch size that was determined dynamically. To make the model more parameter-efficient and solve memory issue, we used a subset of the model’s parameters for training.
 
-Each of these models brought their unique strengths to our task. The Random Forest and MLP models are traditional machine learning models that are computationally efficient and easy to interpret, while the DistilBERT model leverages the power of transformer architectures to capture the contextual information in our text data. By using these models in conjunction, we were able to build a robust and accurate fake news detection system.
+#### Usage
 
+- Data should be placed in ./data folder.
+- Model will be saved in ./models folder.
+- EDA analysis can be found in ./notebooks folder.
+- To prepare the virtual environment and install essential packages, run ./install.sh (works only for Unix users).
+- To train the model, run `python ./src/model_training.py --models <model type>`. This option allows you to choose several models among mlp, random_forest, and transformer.
+- To infer the model, run `python ./src/model_inference.py --model_file <file from models folder without extension> --input_file <path to CSV file> --output_file <path to CSV file> --feature_engineering ['tfidf', 'bow', 'glove', 'transformer']`.
