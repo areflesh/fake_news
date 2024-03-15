@@ -6,3 +6,40 @@ In the rapidly evolving digital age, the proliferation of misinformation has bec
 
 The project utilizes a dataset of news articles labeled as ‘real’ or ‘fake’, which serves as the foundation for training our machine learning models. The report will delve into the specifics of the data preparation, model training, and evaluation processes, providing a comprehensive overview of the project’s methodology and results. The ultimate goal is to compare few model architecture and analyze which one can assist in the timely and accurate detection of fake news, thereby mitigating its potential harmful effects.
 
+
+#### Data preprocessing 
+
+In this project, we employed several data preprocessing techniques to prepare our dataset for the machine learning model. The first step in our preprocessing pipeline was text cleaning. This involved removing unnecessary elements such as special characters from the news articles. We also converted all text to lowercase to maintain consistency and reduce the dimensionality of the data.
+
+Next, we tokenized the text data, which is a process of converting the continuous text into a list of words. The tokenized words were then stemmed using the Porter Stemmer. Stemming is the process of reducing inflected (or sometimes derived) words to their word stem, base or root form. The stemmed words were further filtered by removing the stopwords. Stopwords are a set of commonly used words in a language. Examples of stopwords in English are “a”, “and”, “the”, “in”, and “is”.
+
+After the preprocessing steps, the data was split into training and test sets. This is a common practice in machine learning, where a model is trained on a large portion of the data (the training set), and then the model’s performance is evaluated on a smaller portion of the data that it has not seen before (the test set).
+
+These preprocessing steps helped transform our raw text data into a format that could be effectively used by our machine learning model. The cleaned and tokenized text data, devoid of any stopwords, provided a more focused and relevant set of data for the model to learn from. The use of stemming also helped in reducing the complexity of the model by grouping words with the same roots together.
+
+#### Features engineering 
+
+In this project, we employed a variety of feature engineering techniques to transform the raw text data into a format that could be effectively used by our machine learning models.
+
+The first approach was using GloVe (Global Vectors for Word Representation), a pre-trained word embedding model. We loaded the GloVe vectors and generated features for our training and test sets. Each text was represented as a 50-dimensional vector, capturing the semantic meaning of the words.
+
+The second approach was using TF-IDF (Term Frequency-Inverse Document Frequency). This statistical measure reflects how important a word is to a document in a collection or corpus. We used the TfidfVectorizer from the sklearn library to transform our text data into a matrix of TF-IDF features.
+
+The third approach was using Bag of Words (BoW). This is a representation of text that describes the occurrence of words within a document. We used the CountVectorizer from the sklearn library to convert our text data into a matrix of token counts.
+
+The final approach was using a transformer model for feature extraction. We used the DistilBERT model, a smaller, faster, cheaper and lighter version of BERT. We tokenized the text data, added special tokens, padded or truncated the sequences to a specified maximum length, and created attention masks. For inference, we followed the same steps but without the labels.
+
+These feature engineering approaches helped transform our raw text data into a format that could be effectively used by our machine learning models. The use of multiple approaches allowed us to capture different aspects of the text data, enhancing the performance of our models.
+
+#### Models archeture 
+
+In this project, we utilized a variety of machine learning models to classify news articles as real or fake.
+
+The first model we used was the Random Forest Classifier from the sklearn library. This model operates by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes of the individual trees. We used 100 estimators and set the random state to 42 for reproducibility.
+
+The second model we employed was the Multi-Layer Perceptron (MLP) Classifier, also from the sklearn library. MLPs are a type of feedforward artificial neural network that consists of at least three layers of nodes: an input layer, a hidden layer, and an output layer. We configured our MLP with two hidden layers, each containing 100 nodes, and used the ‘relu’ activation function and the ‘adam’ solver.
+
+The final model we used was the DistilBERT model from the transformers library. DistilBERT is a smaller, faster, cheaper, and lighter version of BERT, a transformer model that has achieved state-of-the-art results on a wide array of Natural Language Processing (NLP) tasks. We fine-tuned this model on our task, using a learning rate of 2e-5 and a batch size that was determined dynamically. To make the model more parameter-efficient, we used a subset of the model’s parameters for training.
+
+Each of these models brought their unique strengths to our task. The Random Forest and MLP models are traditional machine learning models that are computationally efficient and easy to interpret, while the DistilBERT model leverages the power of transformer architectures to capture the contextual information in our text data. By using these models in conjunction, we were able to build a robust and accurate fake news detection system.
+

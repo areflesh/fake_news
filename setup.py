@@ -10,6 +10,8 @@ setup(
         'scikit-learn',
         'nltk',
         'joblib',
+        'torch',
+        'transformers',
     ],
     entry_points={
         'console_scripts': [
