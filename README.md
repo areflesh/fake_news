@@ -6,6 +6,44 @@ In the rapidly evolving digital age, the proliferation of misinformation has bec
 
 The project utilizes a dataset of news articles labeled as ‘real’ or ‘fake’, which serves as the foundation for training our machine learning models. The report will delve into the specifics of the data preparation, model training, and evaluation processes, providing a comprehensive overview of the project’s methodology and results. The ultimate goal is to compare few model architecture and analyze which one can assist in the timely and accurate detection of fake news, thereby mitigating its potential harmful effects.
 
+#### Some data insights 
+
+Exploratory data analysis of the dataset was conducted in a notebook and can be found in the ./notebook folder. Here are a few insights:
+
+- it's important to note that the data is unbalanced, which could potentially affect model training and evaluation.
+![Data balance](images/balance.png)
+
+- The subject category appears to be irrelevant and cannot be used in model training.
+
+- We plotted the frequency of words for both categories, but no significant insights were found, except that both categories are related to the name of the US President. However, this could be explained by data sampling and the timing of the sample.
+
+- The most important topics of real news seem to be related to connections between the US President and Russia, focusing on political aspects, while fake news topics revolve around insurance and money, focusing on economic aspects. This aligns with psychological reasoning.
+
+- Sentiment analysis for fake news shows:
+
+- - Positive: 73.62%
+- - Negative: 26.38%
+
+- Sentiment analysis for real news shows:
+
+- - Positive: 75.43%
+- - Negative: 21.95%
+- - Neutral: 2.61%
+
+
+- Subject category is irrelevant. It can't be used in model training 
+- We have plot freuqency of words by both categories, but there are no significant insight, apart from both categories are related to name of US President. However, this can be explained by data sampling and timing of the sample 
+- Most important topics of real news are related to connections of US President with Russia (fiocusing on political aspects) and fake news about insuarance and money (focusing on economical aspects). It makes sense from physocological point of view 
+
+- Sentiment analysis for fake news:
+positive    0.736193
+negative    0.263807
+
+
+Sentiment analysis for real news:
+positive    0.754354
+negative    0.219545
+neutral     0.026101
 
 #### Data preprocessing 
 
