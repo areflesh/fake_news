@@ -21,14 +21,14 @@ Exploratory data analysis of the dataset was conducted in a notebook and can be 
 
 - Sentiment analysis for fake news shows:
 
-- - Positive: 73.62%
-- - Negative: 26.38%
+ - Positive: 73.62%
+ - Negative: 26.38%
 
 - Sentiment analysis for real news shows:
 
-- - Positive: 75.43%
-- - Negative: 21.95%
-- - Neutral: 2.61%
+ - Positive: 75.43%
+ - Negative: 21.95%
+ - Neutral: 2.61%
 
 
 - Subject category is irrelevant. It can't be used in model training 
