@@ -21,29 +21,15 @@ Exploratory data analysis of the dataset was conducted in a notebook and can be 
 
 - Sentiment analysis for fake news shows:
 
- - Positive: 73.62%
- - Negative: 26.38%
+  - Positive: 73.62%
+  - Negative: 26.38%
 
 - Sentiment analysis for real news shows:
 
- - Positive: 75.43%
- - Negative: 21.95%
- - Neutral: 2.61%
+  - Positive: 75.43%
+  - Negative: 21.95%
+  - Neutral: 2.61%
 
-
-- Subject category is irrelevant. It can't be used in model training 
-- We have plot freuqency of words by both categories, but there are no significant insight, apart from both categories are related to name of US President. However, this can be explained by data sampling and timing of the sample 
-- Most important topics of real news are related to connections of US President with Russia (fiocusing on political aspects) and fake news about insuarance and money (focusing on economical aspects). It makes sense from physocological point of view 
-
-- Sentiment analysis for fake news:
-positive    0.736193
-negative    0.263807
-
-
-Sentiment analysis for real news:
-positive    0.754354
-negative    0.219545
-neutral     0.026101
 
 #### Data preprocessing 
 
