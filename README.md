@@ -83,3 +83,12 @@ In this project, we utilized a variety of machine learning models to classify ne
 |   Multi-Layer Perceptron    |  BOW |    0.99   |  0.99  |  0.99  | 0.9962 |
 |   Multi-Layer Perceptron    |  GloVE |   0.94   |  0.94  |  0.94  | 0.9703 |    
 |   Transfromer |  Transfomer |   0.42   |  0.5  |  0.46 | 0.84 |    
+
+While the Random Forest and Multi-Layer Perceptron models with TF-IDF and BOW features show high performance metrics, it’s important to note that these might not be the best choice for general application of this task. The data extraction for these features was focused on a specific time period and the keywords are homogeneous for this specific dataset. This means that the models might not perform as well when applied to different datasets or time periods.
+
+The GloVe feature, on the other hand, takes into account context and semantic meaning, making it a more versatile choice. The Random Forest and Multi-Layer Perceptron models with GloVe features show slightly lower performance metrics compared to TF-IDF and BOW, but they might provide more reliable and generalizable results across different data.
+
+The Transformer model with Transformer features shows significantly lower performance metrics. This could be due to underfitting, possibly caused by limitations on resources. It might be beneficial to explore ways to optimize the Transformer model, such as adjusting the model complexity or increasing the training time, to improve its performance.
+
+In conclusion, while TF-IDF and BOW feature engineering methods show high performance for this specific dataset, they might not be the best choice for general application. The GloVe feature engineering method, which takes into account context and semantic meaning, might be a better choice for tasks requiring general application. The Transformer model needs further optimization to improve its performance. As always, it’s important to consider the specific requirements and constraints of your task when choosing a model and feature engineering method. Based on metric comparisons, utilizing MLP with GloVe feature engineering appears to be the best solution, considering factors such as deadlines, computational resources, and available data.
+
