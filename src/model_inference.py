@@ -19,16 +19,16 @@ def load_and_preprocess_data(input_file):
 def main(input_file, output_file, model_type, feature_engineering):
  
     df = load_and_preprocess_data(input_file)
-    vectorizers = {'tfidf': load_vectorizer('tfidf'), 'bow': load_vectorizer('bow')}
     
-    if args.feature_engineering in vectorizers.keys():
-        vectorizer = vectorizers[args.feature_engineering]
+    
+    if args.feature_engineering in ('tfidf','bow'):
+        vectorizer = load_vectorizer(args.feature_engineering)
         X_features = vectorizer.transform(df['text'])
     elif args.feature_engineering == 'glove':
         embeddings = load_glove_vectors('glove.6B.50d.txt')
         X_features  = glove_features_generation(df['text'], embeddings, 50)
     elif args.feature_engineering == 'transformer':
-        X_ids, X_masks, _ = create_features_transformer_inference(df['text'])
+        X_ids, X_masks = create_features_transformer_inference(df['text'])
         X_features = X_ids, X_masks    
     
     
@@ -38,10 +38,7 @@ def main(input_file, output_file, model_type, feature_engineering):
         predictions = model.predict(X_features)
 
     else:
-        try:
-            model = load_model_from_checkpoint()
-        except:
-            logging.info("No tranformer checkpoint found")
+        model = load_model_from_checkpoint()
         predictions, _ = predict_transformer_model(model, X_ids, X_masks)
 
     # Save predictions

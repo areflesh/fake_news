@@ -65,9 +65,21 @@ In this project, we utilized a variety of machine learning models to classify ne
 
 #### Usage
 
-- Data should be placed in ./data folder.
-- Model will be saved in ./models folder.
-- EDA analysis can be found in ./notebooks folder.
-- To prepare the virtual environment and install essential packages, run ./install.sh (works only for Unix users).
-- To train the model, run `python ./src/model_training.py --models <model type>`. This option allows you to choose several models among mlp, random_forest, and transformer.
+- Data should be placed in `./data` folder.
+- Model will be saved in `./models` folder.
+- EDA analysis can be found in `./notebooks` folder.
+- To prepare the virtual environment and install essential packages, run `./install.sh` (works only for Unix users).
+- To train the model, run `python ./src/model_training.py --models <model type>`. This option allows you to choose several models among `mlp, random_forest, and transformer`.
 - To infer the model, run `python ./src/model_inference.py --model_file <file from models folder without extension> --input_file <path to CSV file> --output_file <path to CSV file> --feature_engineering ['tfidf', 'bow', 'glove', 'transformer']`.
+
+#### Analysis 
+
+|   Model   | Feature | Precision | Recall  | F1score | Accuracy |  
+|:----------------:|:------:|:---------:|:-------:|:-------:|:-----:|
+|   Random Forest  |  TF-IDF |   0.99   |  0.99  |  0.99  | 0.9994 |   
+|   Random Forest  |  BOW |   0.99   |  0.99  |  0.99  | 0.997 |   
+|   Random Forest  |  GloVe |   0.95   |  0.89  |  0.92  | 0.9595 |   
+|   Multi-Layer Perceptron    |  TF-IDF |   0.99   |  0.99  |  0.99  | 0.9968 |    
+|   Multi-Layer Perceptron    |  BOW |    0.99   |  0.99  |  0.99  | 0.9962 |
+|   Multi-Layer Perceptron    |  GloVE |   0.94   |  0.94  |  0.94  | 0.9703 |    
+|   Transfromer |  Transfomer |   0.42   |  0.5  |  0.46 | 0.84 |    

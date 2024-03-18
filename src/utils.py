@@ -119,7 +119,7 @@ def load_model_from_checkpoint():
     )
 
     # Load the state dictionary from the saved checkpoint
-    model.load_state_dict(torch.load('./models/tranformer'))
+    model.load_state_dict(torch.load('./models/transformer'))
 
     return model
 

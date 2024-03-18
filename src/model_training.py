@@ -44,7 +44,7 @@ def train_models(args):
             X_test_ids, X_test_masks, y_test_tensors = create_features_transformer(X_test, y_test)
             
             logging.info("Features for transformer created. Model training started")
-            model = train_model_transformer(X_train_ids, X_train_masks, y_train_tensors, epochs=4, batch_size=300)
+            model = train_model_transformer(X_train_ids, X_train_masks, y_train_tensors, epochs=6, batch_size=300)
             
             evaluate_transformer_model(model, X_test_ids, X_test_masks, y_test_tensors)
             logging.info("Transformer model trained and evaluated")
